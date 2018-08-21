@@ -14,18 +14,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
   <script type="text/babel">
-  class Hello extends React.Component {
+  class AboutMe extends React.Component {
+     constructor(age, location, track){
+           super(age, location, track);
+           this.state = {
+             age: 28,
+             location: 'San Luis Obispo, CA',
+             track: 'Web Developer Track'
+            }
+         }
+    
     render() {
       return (
         <div>
-          <h3> Hi! I am a student at Bloc.</h3>
-        </div>
+          <h3> Hi! I am a student at {this.props.name}.</h3>
+          <h4> I am on the {this.state.track}. </h4> 
+          <h4> I am {this.state.age} years old. </h4>
+          <h4> I live in {this.state.location}. </h4>               
+      </div>
        );
     }
   }
   
   ReactDOM.render(
-     <Hello />,
+     <AboutMe name = "Bloc"/>,
   document.getElementById('app')
       );
     </script>
